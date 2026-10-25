@@ -1,989 +1,1977 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Muhammad Yadzky — graphic design, video editing, photography and digital content creation.">
-  <title>Muhammad Yadzky — Creative Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #10100f;
-      --surface: #191918;
-      --text: #f3f1e9;
-      --muted: #a5a59c;
-      --accent: #c6ff45;
-      --border: rgba(255,255,255,.13);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    img { width: 100%; display: block; }
-
-    .container {
-      width: min(1120px, 88%);
-      margin-inline: auto;
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(16,16,15,.94);
-      backdrop-filter: blur(16px);
-      padding: 0 6%;
-    }
-
-    .logo {
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-link {
-      color: var(--muted);
-      font-size: 13px;
-      transition: color .2s;
-    }
-
-    .nav-link:hover,
-    .nav-link.active { color: var(--accent); }
-
-    .nav-email {
-      border: 1px solid var(--accent);
-      border-radius: 99px;
-      padding: 9px 15px;
-      color: var(--accent);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      color: var(--text);
-      border: 0;
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    section { padding: 100px 0; }
-
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .hero {
-      min-height: 620px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 55px;
-      align-items: center;
-      padding-top: 90px;
-      padding-bottom: 90px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 7vw, 88px);
-      letter-spacing: -5px;
-      line-height: .99;
-      max-width: 720px;
-    }
-
-    .hero h1 span { color: var(--accent); }
-
-    .hero-description {
-      max-width: 480px;
-      margin-top: 25px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--accent);
-      padding: 12px 19px;
-      border-radius: 99px;
-      color: var(--bg);
-      background: var(--accent);
-      font-size: 13px;
-      font-weight: 700;
-      transition: transform .2s, background .2s;
-    }
-
-    .button:hover { transform: translateY(-3px); }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .hero-art {
-      min-height: 390px;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      background:
-        radial-gradient(ellipse at 70% 25%, #c6ff45 0%, transparent 27%),
-        radial-gradient(ellipse at 25% 75%, #626b36 0%, transparent 36%),
-        linear-gradient(140deg, #393b2e, #171816 65%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-art::before {
-      content: "";
-      width: 230px;
-      height: 310px;
-      border: 1px solid rgba(255,255,255,.65);
-      transform: rotate(15deg);
-      position: absolute;
-    }
-
-    .hero-art::after {
-      content: "VISUAL\A STORYTELLING";
-      white-space: pre;
-      position: absolute;
-      font-size: clamp(32px, 4vw, 53px);
-      font-weight: 700;
-      letter-spacing: -2px;
-      line-height: .98;
-      text-align: center;
-    }
-
-    .hero-art-label {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--accent);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2,
-    .about h2,
-    .contact h2 {
-      font-size: clamp(34px, 5vw, 55px);
-      line-height: 1.1;
-      letter-spacing: -2px;
-    }
-
-    .section-heading p {
-      max-width: 350px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .work-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 0 0 32px;
-    }
-
-    .work-filter {
-      padding: 10px 16px;
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 12px;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .work-filter:hover,
-    .work-filter.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--bg);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 38px 24px;
-    }
-
-    .project-card {
-      display: block;
-      min-width: 0;
-    }
-
-    .project-card.is-filtered-out { display: none; }
-
-    .project-image {
-      aspect-ratio: 1.42;
-      overflow: hidden;
-      background: var(--surface);
-      border-radius: 5px;
-      position: relative;
-    }
-
-    .project-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s;
-    }
-
-    .project-card:hover .project-image img { transform: scale(1.045); }
-
-    .project-number {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: var(--accent);
-      color: var(--bg);
-      border-radius: 99px;
-      padding: 5px 10px;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .project-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 14px;
-      padding-top: 17px;
-    }
-
-    .project-info h3 {
-      font-size: 21px;
-      line-height: 1.3;
-    }
-
-    .project-info p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 5px;
-    }
-
-    .project-arrow {
-      color: var(--accent);
-      font-size: 23px;
-      transition: transform .2s;
-    }
-
-    .project-card:hover .project-arrow { transform: translate(3px, -3px); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 70px;
-    }
-
-    .about h2 { max-width: 400px; }
-
-    .about-copy p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 15px;
-    }
-
-    .about-copy strong { color: var(--text); }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .stat {
-      border-top: 1px solid var(--border);
-      padding-top: 15px;
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--accent);
-      font-size: 24px;
-    }
-
-    .stat span {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .experience-list { margin-top: 35px; }
-
-    .experience-item {
-      display: grid;
-      grid-template-columns: 155px 1fr;
-      gap: 25px;
-      padding: 25px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .experience-date {
-      color: var(--accent);
-      font-size: 12px;
-      padding-top: 4px;
-    }
-
-    .experience-item h3 {
-      font-size: 18px;
-      line-height: 1.4;
-    }
-
-    .experience-place {
-      color: var(--muted);
-      font-size: 13px;
-      margin: 4px 0 9px;
-    }
-
-    .experience-item p:last-child {
-      color: var(--muted);
-      font-size: 13px;
-      max-width: 680px;
-    }
-
-    .skills-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-
-    .skills-layout h3 {
-      font-size: 20px;
-      margin-bottom: 18px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill-tag {
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 9px 13px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .education-item {
-      padding: 20px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .education-item h3 { font-size: 18px; }
-    .education-item p { color: var(--muted); font-size: 13px; }
-
-    .contact {
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .contact h2 {
-      max-width: 750px;
-      margin: 0 auto;
-    }
-
-    .contact > .container > p {
-      color: var(--muted);
-      margin: 20px auto 27px;
-    }
-
-    .contact-email {
-      color: var(--accent);
-      font-size: clamp(17px, 3vw, 24px);
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 6%;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
-
-    @media (max-width: 850px) {
-      .navbar { min-height: 70px; }
-      .menu-toggle { display: block; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 69px;
-        left: 0;
-        right: 0;
-        padding: 25px 6% 30px;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-      }
-
-      .nav-links.open { display: flex; }
-      .nav-email { text-align: center; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 38px;
-        padding-top: 75px;
-      }
-
-      .hero-art { min-height: 330px; }
-      .about-grid { grid-template-columns: 1fr; gap: 30px; }
-      .skills-layout { gap: 30px; }
-    }
-
-    @media (max-width: 600px) {
-      section { padding: 70px 0; }
-      .container { width: 88%; }
-      .hero h1 { letter-spacing: -3px; }
-      .hero-art { min-height: 280px; }
-
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .project-grid { grid-template-columns: 1fr; gap: 30px; }
-      .project-info h3 { font-size: 19px; }
-      .work-filters { gap: 8px; }
-      .work-filter { padding: 9px 12px; font-size: 11px; }
-      .experience-item { grid-template-columns: 1fr; gap: 8px; }
-      .skills-layout { grid-template-columns: 1fr; }
-      .stat-row { gap: 10px; }
-      .stat strong { font-size: 21px; }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Portfolio of Muhammad Yadzky — graphic design, video editing, photography and digital content creation.">
+
+  <title>Muhammad Yadzky — Creative Portfolio</title>
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+  <style>
+
+    :root {
+
+      --bg: #10100f;
+
+      --surface: #191918;
+
+      --text: #f3f1e9;
+
+      --muted: #a5a59c;
+
+      --accent: #c6ff45;
+
+      --border: rgba(255,255,255,.13);
+
+    }
+
+
+
+    \* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+      scroll-padding-top: 90px;
+
+    }
+
+
+
+    body {
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family: "DM Sans", sans-serif;
+
+      line-height: 1.6;
+
+    }
+
+
+
+    a { color: inherit; text-decoration: none; }
+
+    button { font: inherit; }
+
+    img { width: 100%; display: block; }
+
+
+
+    .container {
+
+      width: min(1120px, 88%);
+
+      margin-inline: auto;
+
+    }
+
+
+
+    .navbar {
+
+      min-height: 76px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 24px;
+
+      border-bottom: 1px solid var(--border);
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      background: rgba(16,16,15,.94);
+
+      backdrop-filter: blur(16px);
+
+      padding: 0 6%;
+
+    }
+
+
+
+    .logo {
+
+      font-size: 19px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+    }
+
+
+
+    .logo span { color: var(--accent); }
+
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+
+    }
+
+
+
+    .nav-link {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      transition: color .2s;
+
+    }
+
+
+
+    .nav-link:hover,
+
+    .nav-link.active { color: var(--accent); }
+
+
+
+    .nav-email {
+
+      border: 1px solid var(--accent);
+
+      border-radius: 99px;
+
+      padding: 9px 15px;
+
+      color: var(--accent);
+
+    }
+
+
+
+    .menu-toggle {
+
+      display: none;
+
+      background: transparent;
+
+      color: var(--text);
+
+      border: 0;
+
+      font-size: 25px;
+
+      cursor: pointer;
+
+    }
+
+
+
+    section { padding: 100px 0; }
+
+
+
+    .eyebrow {
+
+      color: var(--accent);
+
+      text-transform: uppercase;
+
+      letter-spacing: 2.5px;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      margin-bottom: 18px;
+
+    }
+
+
+
+    .hero {
+
+      min-height: 620px;
+
+      display: grid;
+
+      grid-template-columns: 1.1fr .9fr;
+
+      gap: 55px;
+
+      align-items: center;
+
+      padding-top: 90px;
+
+      padding-bottom: 90px;
+
+    }
+
+
+
+    .hero h1 {
+
+      font-size: clamp(48px, 7vw, 88px);
+
+      letter-spacing: -5px;
+
+      line-height: .99;
+
+      max-width: 720px;
+
+    }
+
+
+
+    .hero h1 span { color: var(--accent); }
+
+
+
+    .hero-description {
+
+      max-width: 480px;
+
+      margin-top: 25px;
+
+      color: var(--muted);
+
+      font-size: 16px;
+
+    }
+
+
+
+    .hero-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      margin-top: 30px;
+
+    }
+
+
+
+    .button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border: 1px solid var(--accent);
+
+      padding: 12px 19px;
+
+      border-radius: 99px;
+
+      color: var(--bg);
+
+      background: var(--accent);
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      transition: transform .2s, background .2s;
+
+    }
+
+
+
+    .button:hover { transform: translateY(-3px); }
+
+
+
+    .button.secondary {
+
+      background: transparent;
+
+      color: var(--text);
+
+      border-color: var(--border);
+
+    }
+
+
+
+    .hero-art {
+
+      min-height: 390px;
+
+      border-radius: 8px;
+
+      overflow: hidden;
+
+      position: relative;
+
+      background:
+
+        radial-gradient(ellipse at 70% 25%, #c6ff45 0%, transparent 27%),
+
+        radial-gradient(ellipse at 25% 75%, #626b36 0%, transparent 36%),
+
+        linear-gradient(140deg, #393b2e, #171816 65%);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+
+    .hero-art::before {
+
+      content: "";
+
+      width: 230px;
+
+      height: 310px;
+
+      border: 1px solid rgba(255,255,255,.65);
+
+      transform: rotate(15deg);
+
+      position: absolute;
+
+    }
+
+
+
+    .hero-art::after {
+
+      content: "VISUAL\A STORYTELLING";
+
+      white-space: pre;
+
+      position: absolute;
+
+      font-size: clamp(32px, 4vw, 53px);
+
+      font-weight: 700;
+
+      letter-spacing: -2px;
+
+      line-height: .98;
+
+      text-align: center;
+
+    }
+
+
+
+    .hero-art-label {
+
+      position: absolute;
+
+      bottom: 20px;
+
+      left: 20px;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      color: var(--accent);
+
+    }
+
+
+
+    .section-heading {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      gap: 24px;
+
+      margin-bottom: 35px;
+
+    }
+
+
+
+    .section-heading h2,
+
+    .about h2,
+
+    .contact h2 {
+
+      font-size: clamp(34px, 5vw, 55px);
+
+      line-height: 1.1;
+
+      letter-spacing: -2px;
+
+    }
+
+
+
+    .section-heading p {
+
+      max-width: 350px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+
+
+    .work-filters {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin: 0 0 32px;
+
+    }
+
+
+
+    .work-filter {
+
+      padding: 10px 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 99px;
+
+      background: transparent;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      cursor: pointer;
+
+      transition: .2s;
+
+    }
+
+
+
+    .work-filter:hover,
+
+    .work-filter.active {
+
+      background: var(--accent);
+
+      border-color: var(--accent);
+
+      color: var(--bg);
+
+    }
+
+
+
+    .project-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 38px 24px;
+
+    }
+
+
+
+    .project-card {
+
+      display: block;
+
+      min-width: 0;
+
+    }
+
+
+
+    .project-card.is-filtered-out { display: none; }
+
+
+
+    .project-image {
+
+      aspect-ratio: 1.42;
+
+      overflow: hidden;
+
+      background: var(--surface);
+
+      border-radius: 5px;
+
+      position: relative;
+
+    }
+
+
+
+    .project-image img {
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .5s;
+
+    }
+
+
+
+    .project-card:hover .project-image img { transform: scale(1.045); }
+
+
+
+    .project-number {
+
+      position: absolute;
+
+      top: 15px;
+
+      left: 15px;
+
+      background: var(--accent);
+
+      color: var(--bg);
+
+      border-radius: 99px;
+
+      padding: 5px 10px;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+    }
+
+
+
+    .project-info {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: start;
+
+      gap: 14px;
+
+      padding-top: 17px;
+
+    }
+
+
+
+    .project-info h3 {
+
+      font-size: 21px;
+
+      line-height: 1.3;
+
+    }
+
+
+
+    .project-info p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 5px;
+
+    }
+
+
+
+    .project-arrow {
+
+      color: var(--accent);
+
+      font-size: 23px;
+
+      transition: transform .2s;
+
+    }
+
+
+
+    .project-card:hover .project-arrow { transform: translate(3px, -3px); }
+
+
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns: .8fr 1.2fr;
+
+      gap: 70px;
+
+    }
+
+
+
+    .about h2 { max-width: 400px; }
+
+
+
+    .about-copy p {
+
+      color: var(--muted);
+
+      margin-bottom: 18px;
+
+      font-size: 15px;
+
+    }
+
+
+
+    .about-copy strong { color: var(--text); }
+
+
+
+    .stat-row {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 15px;
+
+      margin-top: 30px;
+
+    }
+
+
+
+    .stat {
+
+      border-top: 1px solid var(--border);
+
+      padding-top: 15px;
+
+    }
+
+
+
+    .stat strong {
+
+      display: block;
+
+      color: var(--accent);
+
+      font-size: 24px;
+
+    }
+
+
+
+    .stat span {
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+    }
+
+
+
+    .experience-list { margin-top: 35px; }
+
+
+
+    .experience-item {
+
+      display: grid;
+
+      grid-template-columns: 155px 1fr;
+
+      gap: 25px;
+
+      padding: 25px 0;
+
+      border-top: 1px solid var(--border);
+
+    }
+
+
+
+    .experience-date {
+
+      color: var(--accent);
+
+      font-size: 12px;
+
+      padding-top: 4px;
+
+    }
+
+
+
+    .experience-item h3 {
+
+      font-size: 18px;
+
+      line-height: 1.4;
+
+    }
+
+
+
+    .experience-place {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin: 4px 0 9px;
+
+    }
+
+
+
+    .experience-item p:last-child {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      max-width: 680px;
+
+    }
+
+
+
+    .skills-layout {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 50px;
+
+    }
+
+
+
+    .skills-layout h3 {
+
+      font-size: 20px;
+
+      margin-bottom: 18px;
+
+    }
+
+
+
+    .skill-tags {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+    }
+
+
+
+    .skill-tag {
+
+      border: 1px solid var(--border);
+
+      border-radius: 99px;
+
+      padding: 9px 13px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+
+    .education-item {
+
+      padding: 20px 0;
+
+      border-top: 1px solid var(--border);
+
+    }
+
+
+
+    .education-item h3 { font-size: 18px; }
+
+    .education-item p { color: var(--muted); font-size: 13px; }
+
+
+
+    .contact {
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+
+    }
+
+
+
+    .contact h2 {
+
+      max-width: 750px;
+
+      margin: 0 auto;
+
+    }
+
+
+
+    .contact > .container > p {
+
+      color: var(--muted);
+
+      margin: 20px auto 27px;
+
+    }
+
+
+
+    .contact-email {
+
+      color: var(--accent);
+
+      font-size: clamp(17px, 3vw, 24px);
+
+      overflow-wrap: anywhere;
+
+    }
+
+
+
+    footer {
+
+      border-top: 1px solid var(--border);
+
+      padding: 24px 6%;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 18px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+    }
+
+
+
+    .reveal {
+
+      opacity: 0;
+
+      transform: translateY(18px);
+
+      transition: opacity .55s ease, transform .55s ease;
+
+    }
+
+
+
+    .reveal.is-visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html { scroll-behavior: auto; }
+
+      \*, \*::before, \*::after {
+
+        animation-duration: .01ms !important;
+
+        transition-duration: .01ms !important;
+
+      }
+
+      .reveal { opacity: 1; transform: none; }
+
+    }
+
+
+
+    @media (max-width: 850px) {
+
+      .navbar { min-height: 70px; }
+
+      .menu-toggle { display: block; }
+
+
+
+      .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 69px;
+
+        left: 0;
+
+        right: 0;
+
+        padding: 25px 6% 30px;
+
+        background: var(--bg);
+
+        border-bottom: 1px solid var(--border);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+
+      }
+
+
+
+      .nav-links.open { display: flex; }
+
+      .nav-email { text-align: center; }
+
+
+
+      .hero {
+
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+
+        padding-top: 75px;
+
+      }
+
+
+
+      .hero-art { min-height: 330px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+
+      .skills-layout { gap: 30px; }
+
+    }
+
+
+
+    @media (max-width: 600px) {
+
+      section { padding: 70px 0; }
+
+      .container { width: 88%; }
+
+      .hero h1 { letter-spacing: -3px; }
+
+      .hero-art { min-height: 280px; }
+
+
+
+      .section-heading {
+
+        align-items: start;
+
+        flex-direction: column;
+
+      }
+
+
+
+      .project-grid { grid-template-columns: 1fr; gap: 30px; }
+
+      .project-info h3 { font-size: 19px; }
+
+      .work-filters { gap: 8px; }
+
+      .work-filter { padding: 9px 12px; font-size: 11px; }
+
+      .experience-item { grid-template-columns: 1fr; gap: 8px; }
+
+      .skills-layout { grid-template-columns: 1fr; }
+
+      .stat-row { gap: 10px; }
+
+      .stat strong { font-size: 21px; }
+
+
+
+      footer {
+
+        flex-direction: column;
+
+        text-align: center;
+
+      }
+
+    }
+
+  </style>
+
 </head>
 
+
+
 <body>
-  <header class="navbar">
-    <a class="logo" href="#home">YADZKY<span>.</span></a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-    >☰</button>
+  <header class="navbar">
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <a class="nav-link active" href="#home">Home</a>
-      <a class="nav-link" href="#works">Works</a>
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#skills">Skills</a>
-      <a class="nav-link" href="#contact">Contact</a>
-      <a class="nav-link nav-email" href="mailto:yadzkyhq21@gmail.com">Let's Talk ↗</a>
-    </nav>
-  </header>
+    <a class="logo" href="#home">YADZKY<span>.</span></a>
 
-  <main>
-    <section class="hero container" id="home">
-      <div>
-        <p class="eyebrow">Multimedia Creative · Indonesia</p>
-        <h1>Ideas into <span>visual</span> stories.</h1>
-        <p class="hero-description">
-          I'm Muhammad Yadzky, a multimedia creative working across graphic
-          design, video editing, photography, and digital content production.
-          I turn ideas into visuals with purpose.
-        </p>
 
-        <div class="hero-actions">
-          <a class="button" href="#works">Explore My Works ↘</a>
-          <a class="button secondary" href="#contact">Get in Touch</a>
-        </div>
-      </div>
 
-      <div class="hero-art" aria-label="Abstract visual storytelling artwork">
-        <span class="hero-art-label">CREATIVE PORTFOLIO — 2026</span>
-      </div>
-    </section>
+    <button
 
-    <section id="works">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Selected Projects</p>
-            <h2>Things I've<br>created.</h2>
-          </div>
-          <p>
-            A collection of visual work, creative experiments, and digital
-            content. More projects will be added as the portfolio grows.
-          </p>
-        </div>
+      class="menu-toggle"
 
-        <div class="work-filters" aria-label="Filter portfolio projects">
-          <button class="work-filter active" type="button" data-work-filter="all" aria-pressed="true">All Works</button>
-          <button class="work-filter" type="button" data-work-filter="design" aria-pressed="false">Graphic Design</button>
-          <button class="work-filter" type="button" data-work-filter="video" aria-pressed="false">Video Editing</button>
-          <button class="work-filter" type="button" data-work-filter="photo" aria-pressed="false">Photography</button>
-          <button class="work-filter" type="button" data-work-filter="social" aria-pressed="false">Social Media</button>
-          <button class="work-filter" type="button" data-work-filter="event" aria-pressed="false">Event</button>
-        </div>
+      type="button"
 
-        <div class="project-grid">
-          <a href="project-01.html" class="project-card" data-category="design">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1100&q=85"
-                alt="Abstract colorful graphic artwork"
-                loading="lazy"
-              >
-              <span class="project-number">PROJECT 01</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Graphic Design & Posters</h3>
-              </div>
-              <span class="project-arrow">↗</span>
-            </div>
-          </a>
+      aria-label="Open navigation menu"
 
-          <a href="project-02.html" class="project-card" data-category="video">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1100&q=85"
-                alt="Cinema screen in a dark movie theater"
-                loading="lazy"
-              >
-              <span class="project-number">PROJECT 02</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Film & Video Production</h3>
-              </div>
-              <span class="project-arrow">↗</span>
-            </div>
-          </a>
+      aria-expanded="false"
 
-          <a href="project-03.html" class="project-card" data-category="photo">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1100&q=85"
-                alt="Camera used for photography"
-                loading="lazy"
-              >
-              <span class="project-number">PROJECT 03</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Photography & Documentation</h3>
-              </div>
-              <span class="project-arrow">↗</span>
-            </div>
-          </a>
+    >☰</button>
 
-          <a href="project-04.html" class="project-card" data-category="social">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1100&q=85"
-                alt="Social media content displayed on a screen"
-                loading="lazy"
-              >
-              <span class="project-number">PROJECT 04</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Social Media Specialist</h3>
-              </div>
-              <span class="project-arrow">↗</span>
-            </div>
-          </a>
 
-          <a href="project-05.html" class="project-card" data-category="event">
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1100&q=85"
-                alt="Live event with stage lighting and audience"
-                loading="lazy"
-              >
-              <span class="project-number">PROJECT 05</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Event Organization</h3>
-              </div>
-              <span class="project-arrow">↗</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <section id="about">
-      <div class="container about-grid about">
-        <div>
-          <p class="eyebrow">A Little About Me</p>
-          <h2>Creative thinking. Meaningful visuals.</h2>
-        </div>
+    <nav class="nav-links" aria-label="Main navigation">
 
-        <div class="about-copy">
-          <p>
-            I'm a Communication and Broadcasting student at UIN Syarif
-            Hidayatullah Jakarta with a strong interest in multimedia
-            production, visual storytelling, and digital communication.
-          </p>
-          <p>
-            My work spans <strong>graphic design, video editing,
-            photography, videography, and social media content</strong>.
-            I enjoy bringing ideas to life through visuals that communicate
-            clearly and connect with an audience.
-          </p>
-          <p>
-            From promotional content to event documentation and short films,
-            I approach each project as an opportunity to learn, experiment,
-            and create something useful.
-          </p>
+      <a class="nav-link active" href="#home">Home</a>
 
-          <div class="stat-row">
-            <div class="stat">
-              <strong>3.97</strong>
-              <span>Current GPA</span>
-            </div>
-            <div class="stat">
-              <strong>4+</strong>
-              <span>Creative disciplines</span>
-            </div>
-            <div class="stat">
-              <strong>2023</strong>
-              <span>Freelance since</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <a class="nav-link" href="#works">Works</a>
 
-    <section id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Where I've Contributed</p>
-            <h2>Experience.</h2>
-          </div>
-          <p>
-            Creative production, social media, event documentation, and
-            collaborative projects.
-          </p>
-        </div>
+      <a class="nav-link" href="#about">About</a>
 
-        <div class="experience-list">
-          <article class="experience-item">
-            <div class="experience-date">2026</div>
-            <div>
-              <h3>Social Media Management Intern</h3>
-              <p class="experience-place">UPZ (BAZMA) Pertamina Retail</p>
-              <p>
-                Supported social media management, content scheduling,
-                promotional design, short-form video editing, caption writing,
-                and digital campaign production.
-              </p>
-            </div>
-          </article>
+      <a class="nav-link" href="#experience">Experience</a>
 
-          <article class="experience-item">
-            <div class="experience-date">2023 — Present</div>
-            <div>
-              <h3>Freelance Video Editor & Graphic Designer</h3>
-              <p class="experience-place">Independent / Freelance</p>
-              <p>
-                Create promotional videos, social media content, graphic
-                materials, and visual assets in collaboration with clients.
-              </p>
-            </div>
-          </article>
+      <a class="nav-link" href="#skills">Skills</a>
 
-          <article class="experience-item">
-            <div class="experience-date">2024</div>
-            <div>
-              <h3>Editor & Cameraman — “Mine All Mine”</h3>
-              <p class="experience-place">Short Film Production</p>
-              <p>
-                Contributed to cinematography, video editing, audio
-                synchronization, and post-production for a short film.
-              </p>
-            </div>
-          </article>
+      <a class="nav-link" href="#contact">Contact</a>
 
-          <article class="experience-item">
-            <div class="experience-date">2024 — 2026</div>
-            <div>
-              <h3>Media Center & Event Organizer Staff</h3>
-              <p class="experience-place">Pondok Modern Al-Ghozali</p>
-              <p>
-                Supported event production, stage setup, multimedia content,
-                event documentation, posters, and digital publications.
-              </p>
-            </div>
-          </article>
+      <a class="nav-link nav-email" href="mailto:yadzkyhq21@gmail.com">Let's Talk ↗</a>
 
-          <article class="experience-item">
-            <div class="experience-date">2022 — 2023</div>
-            <div>
-              <h3>Media Center Staff</h3>
-              <p class="experience-place">Pondok Modern Al-Barokah</p>
-              <p>
-                Worked on multimedia production, video editing, and event
-                documentation, alongside organizational and mentoring duties.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    </nav>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Tools & Capabilities</p>
-            <h2>My creative toolkit.</h2>
-          </div>
-        </div>
+  </header>
 
-        <div class="skills-layout">
-          <div class="skills-block">
-            <h3>Software</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Adobe Premiere Pro</span>
-              <span class="skill-tag">Adobe Photoshop</span>
-              <span class="skill-tag">CorelDRAW</span>
-              <span class="skill-tag">Canva</span>
-              <span class="skill-tag">CapCut</span>
-              <span class="skill-tag">Microsoft Office</span>
-            </div>
-          </div>
 
-          <div class="skills-block">
-            <h3>Creative Skills</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Video Editing</span>
-              <span class="skill-tag">Graphic Design</span>
-              <span class="skill-tag">Photography</span>
-              <span class="skill-tag">Videography</span>
-              <span class="skill-tag">Content Production</span>
-              <span class="skill-tag">Content Planning</span>
-              <span class="skill-tag">Social Media Management</span>
-              <span class="skill-tag">Visual Storytelling</span>
-            </div>
-          </div>
-        </div>
 
-        <div style="margin-top: 55px;">
-          <p class="eyebrow">Education</p>
+  <main>
 
-          <div class="education-item">
-            <h3>UIN Syarif Hidayatullah Jakarta</h3>
-            <p>
-              Bachelor's Degree — Islamic Communication and Broadcasting
-              · 2023–Present
-            </p>
-            <p>Current GPA: 3.97 after six semesters</p>
-          </div>
+    <section class="hero container" id="home">
 
-          <div class="education-item">
-            <h3>Pondok Modern Darussalam Gontor</h3>
-            <p>Graduated 2022 · Academic achievement: Mumtaz</p>
-          </div>
-        </div>
+      <div>
 
-        <div style="margin-top: 35px;">
-          <h3 style="font-size: 18px; margin-bottom: 14px;">Languages</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Indonesian — Native</span>
-            <span class="skill-tag">Arabic — Advanced</span>
-            <span class="skill-tag">English — Intermediate</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <p class="eyebrow">Multimedia Creative · Indonesia</p>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <p class="eyebrow">Have a Project in Mind?</p>
-        <h2>Let's create something worth seeing.</h2>
-        <p>For collaborations, freelance projects, or just to say hello.</p>
-        <a class="contact-email" href="mailto:yadzkyhq21@gmail.com">
-          yadzkyhq21@gmail.com ↗
-        </a>
-        <div style="margin-top: 28px;">
-          <a class="button" href="mailto:yadzkyhq21@gmail.com">Start a Conversation</a>
-        </div>
-      </div>
-    </section>
-  </main>
+        <h1>Ideas into <span>visual</span> stories.</h1>
 
-  <footer>
-    <span>© 2026 Muhammad Yadzky</span>
-    <span>Designed with intention. Created with purpose.</span>
-  </footer>
+        <p class="hero-description">
 
-  <script>
-    // Mobile navigation
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-link');
+          I'm Muhammad Yadzky, a multimedia creative working across graphic
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.textContent = isOpen ? '✕' : '☰';
-      });
+          design, video editing, photography, and digital content production.
 
-      navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.textContent = '☰';
-        });
-      });
-    }
+          I turn ideas into visuals with purpose.
 
-    // Highlight the navigation link for the current section
-    const pageSections = document.querySelectorAll('main section[id]');
+        </p>
 
-    if ('IntersectionObserver' in window && pageSections.length) {
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navItems.forEach((link) => {
-              link.classList.toggle(
-                'active',
-                link.getAttribute('href') === '#' + entry.target.id
-              );
-            });
-          }
-        });
-      }, { rootMargin: '-25% 0px -60% 0px' });
 
-      pageSections.forEach((section) => sectionObserver.observe(section));
-    }
 
-    // Filter portfolio projects
-    const workFilterButtons = document.querySelectorAll('[data-work-filter]');
-    const workFilterCards = document.querySelectorAll('.project-card[data-category]');
+        <div class="hero-actions">
 
-    workFilterButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const selectedCategory = button.dataset.workFilter;
+          <a class="button" href="#works">Explore My Works ↘</a>
 
-        workFilterButtons.forEach((filterButton) => {
-          const isActive = filterButton === button;
-          filterButton.classList.toggle('active', isActive);
-          filterButton.setAttribute('aria-pressed', String(isActive));
-        });
+          <a class="button secondary" href="#contact">Get in Touch</a>
 
-        workFilterCards.forEach((card) => {
-          const matches =
-            selectedCategory === 'all' ||
-            card.dataset.category === selectedCategory;
+        </div>
 
-          card.classList.toggle('is-filtered-out', !matches);
-        });
-      });
-    });
+      </div>
 
-    // Scroll reveal animations
-    const revealElements = document.querySelectorAll(
-      '.section-heading, .project-card, .about, .experience-item, .skills-block, .contact'
-    );
 
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      revealElements.forEach((element) => element.classList.add('reveal'));
 
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
+      <div class="hero-art" aria-label="Abstract visual storytelling artwork">
 
-      revealElements.forEach((element) => revealObserver.observe(element));
-    }
-  </script>
+        <span class="hero-art-label">CREATIVE PORTFOLIO — 2026</span>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="works">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">Selected Projects</p>
+
+            <h2>Things I've<br>created.</h2>
+
+          </div>
+
+          <p>
+
+            A collection of visual work, creative experiments, and digital
+
+            content. More projects will be added as the portfolio grows.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="work-filters" aria-label="Filter portfolio projects">
+
+          <button class="work-filter active" type="button" data-work-filter="all" aria-pressed="true">All Works</button>
+
+          <button class="work-filter" type="button" data-work-filter="design" aria-pressed="false">Graphic Design</button>
+
+          <button class="work-filter" type="button" data-work-filter="video" aria-pressed="false">Video Editing</button>
+
+          <button class="work-filter" type="button" data-work-filter="photo" aria-pressed="false">Photography</button>
+
+          <button class="work-filter" type="button" data-work-filter="social" aria-pressed="false">Social Media</button>
+
+          <button class="work-filter" type="button" data-work-filter="event" aria-pressed="false">Event</button>
+
+        </div>
+
+
+
+        <div class="project-grid">
+
+          <a href="project-01.html" class="project-card" data-category="design">
+
+            <div class="project-image">
+
+              <img
+
+                src="assets/project-01.jpg"
+
+                alt="Abstract colorful graphic artwork"
+
+                loading="lazy"
+
+              >
+
+              <span class="project-number">PROJECT 01</span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+
+                <h3>Graphic Design & Posters</h3>
+
+              </div>
+
+              <span class="project-arrow">↗</span>
+
+            </div>
+
+          </a>
+
+
+
+          <a href="project-02.html" class="project-card" data-category="video">
+
+            <div class="project-image">
+
+              <img
+
+                src="assets/project-02.jpg"
+
+                alt="Cinema screen in a dark movie theater"
+
+                loading="lazy"
+
+              >
+
+              <span class="project-number">PROJECT 02</span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+
+                <h3>Film & Video Production</h3>
+
+              </div>
+
+              <span class="project-arrow">↗</span>
+
+            </div>
+
+          </a>
+
+
+
+          <a href="project-03.html" class="project-card" data-category="photo">
+
+            <div class="project-image">
+
+              <img
+
+                src="assets/project-03.jpg"
+
+                alt="Camera used for photography"
+
+                loading="lazy"
+
+              >
+
+              <span class="project-number">PROJECT 03</span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+
+                <h3>Photography & Documentation</h3>
+
+              </div>
+
+              <span class="project-arrow">↗</span>
+
+            </div>
+
+          </a>
+
+
+
+          <a href="project-04.html" class="project-card" data-category="social">
+
+            <div class="project-image">
+
+              <img
+
+                src="assets/project-04.jpg"
+
+                alt="Social media content displayed on a screen"
+
+                loading="lazy"
+
+              >
+
+              <span class="project-number">PROJECT 04</span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+
+                <h3>Social Media Specialist</h3>
+
+              </div>
+
+              <span class="project-arrow">↗</span>
+
+            </div>
+
+          </a>
+
+
+
+          <a href="project-05.html" class="project-card" data-category="event">
+
+            <div class="project-image">
+
+              <img
+
+                src="assets/project-05.jpg"
+
+                alt="Live event with stage lighting and audience"
+
+                loading="lazy"
+
+              >
+
+              <span class="project-number">PROJECT 05</span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+
+                <h3>Event Organization</h3>
+
+              </div>
+
+              <span class="project-arrow">↗</span>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="about">
+
+      <div class="container about-grid about">
+
+        <div>
+
+          <p class="eyebrow">A Little About Me</p>
+
+          <h2>Creative thinking. Meaningful visuals.</h2>
+
+        </div>
+
+
+
+        <div class="about-copy">
+
+          <p>
+
+            I'm a Communication and Broadcasting student at UIN Syarif
+
+            Hidayatullah Jakarta with a strong interest in multimedia
+
+            production, visual storytelling, and digital communication.
+
+          </p>
+
+          <p>
+
+            My work spans <strong>graphic design, video editing,
+
+            photography, videography, and social media content</strong>.
+
+            I enjoy bringing ideas to life through visuals that communicate
+
+            clearly and connect with an audience.
+
+          </p>
+
+          <p>
+
+            From promotional content to event documentation and short films,
+
+            I approach each project as an opportunity to learn, experiment,
+
+            and create something useful.
+
+          </p>
+
+
+
+          <div class="stat-row">
+
+            <div class="stat">
+
+              <strong>3.97</strong>
+
+              <span>Current GPA</span>
+
+            </div>
+
+            <div class="stat">
+
+              <strong>4+</strong>
+
+              <span>Creative disciplines</span>
+
+            </div>
+
+            <div class="stat">
+
+              <strong>2023</strong>
+
+              <span>Freelance since</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">Where I've Contributed</p>
+
+            <h2>Experience.</h2>
+
+          </div>
+
+          <p>
+
+            Creative production, social media, event documentation, and
+
+            collaborative projects.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="experience-list">
+
+          <article class="experience-item">
+
+            <div class="experience-date">2026</div>
+
+            <div>
+
+              <h3>Social Media Management Intern</h3>
+
+              <p class="experience-place">UPZ (BAZMA) Pertamina Retail</p>
+
+              <p>
+
+                Supported social media management, content scheduling,
+
+                promotional design, short-form video editing, caption writing,
+
+                and digital campaign production.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="experience-item">
+
+            <div class="experience-date">2023 — Present</div>
+
+            <div>
+
+              <h3>Freelance Video Editor & Graphic Designer</h3>
+
+              <p class="experience-place">Independent / Freelance</p>
+
+              <p>
+
+                Create promotional videos, social media content, graphic
+
+                materials, and visual assets in collaboration with clients.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="experience-item">
+
+            <div class="experience-date">2024</div>
+
+            <div>
+
+              <h3>Editor & Cameraman — “Mine All Mine”</h3>
+
+              <p class="experience-place">Short Film Production</p>
+
+              <p>
+
+                Contributed to cinematography, video editing, audio
+
+                synchronization, and post-production for a short film.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="experience-item">
+
+            <div class="experience-date">2024 — 2026</div>
+
+            <div>
+
+              <h3>Media Center & Event Organizer Staff</h3>
+
+              <p class="experience-place">Pondok Modern Al-Ghozali</p>
+
+              <p>
+
+                Supported event production, stage setup, multimedia content,
+
+                event documentation, posters, and digital publications.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="experience-item">
+
+            <div class="experience-date">2022 — 2023</div>
+
+            <div>
+
+              <h3>Media Center Staff</h3>
+
+              <p class="experience-place">Pondok Modern Al-Barokah</p>
+
+              <p>
+
+                Worked on multimedia production, video editing, and event
+
+                documentation, alongside organizational and mentoring duties.
+
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">Tools & Capabilities</p>
+
+            <h2>My creative toolkit.</h2>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="skills-layout">
+
+          <div class="skills-block">
+
+            <h3>Software</h3>
+
+            <div class="skill-tags">
+
+              <span class="skill-tag">Adobe Premiere Pro</span>
+
+              <span class="skill-tag">Adobe Photoshop</span>
+
+              <span class="skill-tag">CorelDRAW</span>
+
+              <span class="skill-tag">Canva</span>
+
+              <span class="skill-tag">CapCut</span>
+
+              <span class="skill-tag">Microsoft Office</span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="skills-block">
+
+            <h3>Creative Skills</h3>
+
+            <div class="skill-tags">
+
+              <span class="skill-tag">Video Editing</span>
+
+              <span class="skill-tag">Graphic Design</span>
+
+              <span class="skill-tag">Photography</span>
+
+              <span class="skill-tag">Videography</span>
+
+              <span class="skill-tag">Content Production</span>
+
+              <span class="skill-tag">Content Planning</span>
+
+              <span class="skill-tag">Social Media Management</span>
+
+              <span class="skill-tag">Visual Storytelling</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div style="margin-top: 55px;">
+
+          <p class="eyebrow">Education</p>
+
+
+
+          <div class="education-item">
+
+            <h3>UIN Syarif Hidayatullah Jakarta</h3>
+
+            <p>
+
+              Bachelor's Degree — Islamic Communication and Broadcasting
+
+              · 2023–Present
+
+            </p>
+
+            <p>Current GPA: 3.97 after six semesters</p>
+
+          </div>
+
+
+
+          <div class="education-item">
+
+            <h3>Pondok Modern Darussalam Gontor</h3>
+
+            <p>Graduated 2022 · Academic achievement: Mumtaz</p>
+
+          </div>
+
+        </div>
+
+
+
+        <div style="margin-top: 35px;">
+
+          <h3 style="font-size: 18px; margin-bottom: 14px;">Languages</h3>
+
+          <div class="skill-tags">
+
+            <span class="skill-tag">Indonesian — Native</span>
+
+            <span class="skill-tag">Arabic — Advanced</span>
+
+            <span class="skill-tag">English — Intermediate</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <p class="eyebrow">Have a Project in Mind?</p>
+
+        <h2>Let's create something worth seeing.</h2>
+
+        <p>For collaborations, freelance projects, or just to say hello.</p>
+
+        <a class="contact-email" href="mailto:yadzkyhq21@gmail.com">
+
+          yadzkyhq21@gmail.com ↗
+
+        </a>
+
+        <div style="margin-top: 28px;">
+
+          <a class="button" href="mailto:yadzkyhq21@gmail.com">Start a Conversation</a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <footer>
+
+    <span>© 2026 Muhammad Yadzky</span>
+
+    <span>Designed with intention. Created with purpose.</span>
+
+  </footer>
+
+
+
+  <script>
+
+    // Mobile navigation
+
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    const navLinks = document.querySelector('.nav-links');
+
+    const navItems = document.querySelectorAll('.nav-link');
+
+
+
+    if (menuToggle && navLinks) {
+
+      menuToggle.addEventListener('click', () => {
+
+        const isOpen = navLinks.classList.toggle('open');
+
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+
+      });
+
+
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+
+        link.addEventListener('click', () => {
+
+          navLinks.classList.remove('open');
+
+          menuToggle.setAttribute('aria-expanded', 'false');
+
+          menuToggle.textContent = '☰';
+
+        });
+
+      });
+
+    }
+
+
+
+    // Highlight the navigation link for the current section
+
+    const pageSections = document.querySelectorAll('main section[id]');
+
+
+
+    if ('IntersectionObserver' in window && pageSections.length) {
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            navItems.forEach((link) => {
+
+              link.classList.toggle(
+
+                'active',
+
+                link.getAttribute('href') === '#' + entry.target.id
+
+              );
+
+            });
+
+          }
+
+        });
+
+      }, { rootMargin: '-25% 0px -60% 0px' });
+
+
+
+      pageSections.forEach((section) => sectionObserver.observe(section));
+
+    }
+
+
+
+    // Filter portfolio projects
+
+    const workFilterButtons = document.querySelectorAll('[data-work-filter]');
+
+    const workFilterCards = document.querySelectorAll('.project-card[data-category]');
+
+
+
+    workFilterButtons.forEach((button) => {
+
+      button.addEventListener('click', () => {
+
+        const selectedCategory = button.dataset.workFilter;
+
+
+
+        workFilterButtons.forEach((filterButton) => {
+
+          const isActive = filterButton === button;
+
+          filterButton.classList.toggle('active', isActive);
+
+          filterButton.setAttribute('aria-pressed', String(isActive));
+
+        });
+
+
+
+        workFilterCards.forEach((card) => {
+
+          const matches =
+
+            selectedCategory === 'all' ||
+
+            card.dataset.category === selectedCategory;
+
+
+
+          card.classList.toggle('is-filtered-out', !matches);
+
+        });
+
+      });
+
+    });
+
+
+
+    // Scroll reveal animations
+
+    const revealElements = document.querySelectorAll(
+
+      '.section-heading, .project-card, .about, .experience-item, .skills-block, .contact'
+
+    );
+
+
+
+    if ('IntersectionObserver' in window && !window\.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+      revealElements.forEach((element) => element.classList.add('reveal'));
+
+
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add('is-visible');
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      }, { threshold: 0.12 });
+
+
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+
+    }
+
+  </script>
+
 </body>
+
 </html>
